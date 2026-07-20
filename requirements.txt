@@ -1,0 +1,48 @@
+# ══════════════════════════════════════════════════════════════════════════════
+# Golf Analytics Platform — Python Dependencies
+# ══════════════════════════════════════════════════════════════════════════════
+#
+# Install all dependencies:
+#   pip install -r requirements.txt
+#
+# Activate virtual environment first (Windows):
+#   .venv\Scripts\activate
+#
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ── Web framework (FastAPI backend) ───────────────────────────────────────────
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+python-multipart>=0.0.9
+
+# ── Data processing ───────────────────────────────────────────────────────────
+pandas>=2.2.0
+numpy>=1.26.0,<3.0.0
+openpyxl>=3.1.0          # Excel file support (optional — for .xlsx ingestion)
+
+# ── RAG / Vector search ───────────────────────────────────────────────────────
+# faiss-cpu 1.9.0 supports Python 3.12. On Python 3.13+ use 1.13.x.
+# The range below lets pip pick the right build automatically.
+faiss-cpu>=1.9.0,<2.0.0   # FAISS vector similarity search (CPU build)
+
+# ── LLM providers (install at least one) ──────────────────────────────────────
+google-generativeai>=0.8.0   # Google Gemini (default) — free key at aistudio.google.com
+openai>=1.50.0               # OpenAI GPT alternative — set LLM_PROVIDER=openai in .env
+
+# ── Google Drive integration (optional) ───────────────────────────────────────
+google-api-python-client>=2.100.0
+google-auth>=2.20.0
+google-auth-httplib2>=0.2.0
+PyMuPDF>=1.23.0              # PDF text extraction from Google Drive files
+
+# ── Dashboard UI ──────────────────────────────────────────────────────────────
+streamlit>=1.40.0
+plotly>=5.20.0
+
+# ── Utilities ─────────────────────────────────────────────────────────────────
+python-dotenv>=1.0.0      # Load .env variables
+requests>=2.31.0          # HTTP client
+pydantic>=2.5.0           # Data validation (used by FastAPI)
+
+# ── Testing ───────────────────────────────────────────────────────────────────
+pytest>=9.0.0             # Test runner — run: python -m pytest tests/ -v
