@@ -34,6 +34,7 @@ htmlcov/
 .idea/
 *.sublime-project
 *.sublime-workspace
+.kiro
 
 # RAG Index (generated files, can be rebuilt)
 rag/index/*.faiss
